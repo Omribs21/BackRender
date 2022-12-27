@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import GetOrders,DeleteProduct,UpdateUser,CleanWishlist,GetWishlist,DeleteFromWishlist,Wishlist,AddOrder,GetProducts,UpdatePriceToProduct,AddCategory,GetProductsByCategory, MyTokenObtainPairView,AddProduct
+from .views import GetOrders,DeleteProduct,CleanWishlist,GetWishlist,DeleteFromWishlist,Wishlist,AddOrder,GetProducts,UpdatePriceToProduct,AddCategory,GetProductsByCategory, MyTokenObtainPairView,AddProduct
 
 
 urlpatterns = [
@@ -10,8 +10,7 @@ urlpatterns = [
      path('products/<id>/',views.GetProducts),# Get Product by his category id
      path('products/',views.GetProducts), # Get all Products
      path("addProduct/", views.AddProduct), # Add new Product to DB
-     path("getprodbycat/",views.GetProductsByCategory),
-     # path('mycartprods/',views.GetCartProdsbyidw),
+     path("getprodbycat/<id>/",views.GetProductsByCategory),
      path('addOrder/',views.AddOrder),
      path("addCategory/",views.AddCategory),
      path('token/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),# log in
@@ -20,7 +19,6 @@ urlpatterns = [
      path('RemoveFromWishlist/', views.DeleteFromWishlist), # Remove specific item from Wishlist
      path('GetWishlist/',views.GetWishlist), # Get all of the user items in his Wishlist
      path('CleanWishlist/', views.CleanWishlist), # Clean the user Wishlist.
-     # path('UpdateUser/',views.UpdateUser),
      path('DeleteProd/',views.DeleteProduct),
      path('AddPersonalProd/',views.AddPersonalProduct),
      path('PersonalProducts/',views.GetPersonalProducts),
