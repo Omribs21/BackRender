@@ -146,9 +146,12 @@ def AddOrder(request):
     phone =request.data["phone"]
     postalCode = request.data["postalCode"]
     totalCart = request.data["total"]
-
+    first_name = request.data["first_name"]
+    last_name = request.data["last_name"]
+    email = request.data["email"]
     # create new order with the values above.
-    newOrder = Orders.objects.create(user = request.user,city= city,district=district,phone_num = phone, postal_code = postalCode,Total = totalCart)
+    newOrder = Orders.objects.create(user = request.user,FirstName = first_name, LastName = last_name, email= email,
+    city= city,district=district,phone_num = phone, postal_code = postalCode,Total = totalCart)
     
     # add every item of the order to the DB with the order Id
     # depends on wich cart the func recieve.

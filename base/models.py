@@ -39,6 +39,9 @@ class Orders(models.Model):
     phone_num = models.CharField(max_length=50,default="", null=False)
     postal_code = models.CharField(max_length=50,default="", null=False)
     createdTime = models.DateTimeField(auto_now_add=True)
+    FirstName = models.CharField(max_length=50, default="", null=False)
+    LastName = models.CharField(max_length=50, default="", null=False)
+    email = models.EmailField(max_length=50, default="", null=False)
     Total = models.IntegerField(null=True)
 
 class Orders_details(models.Model):
@@ -52,6 +55,7 @@ class Orders_details(models.Model):
     size = models.CharField(max_length=50, default="", null=False)
     total = models.PositiveIntegerField(default=0,null=False)
     comments = models.CharField(max_length=150, default="", null=False)
+    
 
 # CREATE THE USER WISHLIST
 class Wishlist(models.Model):
